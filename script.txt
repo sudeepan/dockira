@@ -22,7 +22,7 @@ function dkira() {
         return 3
     fi
     
-    # Run the Docker container and copy output files
+    # Run the Docker container
     echo "Starting kira process with input file: $input_file"
     
     docker cp $work_dir/. kira:/home/jobs/
