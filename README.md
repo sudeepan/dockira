@@ -1,5 +1,5 @@
-# dockira: a Docker-based solution to work with Kira on MacOS
-The exhausted individual's humble attempt at (unreasonably) trying to run Kira on the newer Mac(O)s.
+# dockira: a Docker-based solution to work with kira on MacOS
+The exhausted individual's humble attempt at (unreasonably) trying to run kira on the newer Mac(O)s.
 
 # amd64 image (preferred)
 First, confirm the docker engine is running. Open an integrated terminal, and enter the following command to build an amd64 image, since ginac has potential issues with aarch64:
