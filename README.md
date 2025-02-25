@@ -2,8 +2,10 @@
 The exhausted individual's humble attempt at (unreasonably) trying to run Kira on the newer Mac(O)s.
 
 # amd64 image (preferred)
-Open an integrated terminal, and enter the following command to build an amd64 image, since ginac has potential issues with aarch64:
+First, confirm the docker engine is running. Open an integrated terminal, and enter the following command to build an amd64 image, since ginac has potential issues with aarch64:
 `docker buildx build --platform linux/amd64 -t dockira:amd64 .`, where the name of the image is `dockira:amd64`.
+
+Alternatively, pull the image from dockerhub: `docker pull sudeepan/dockira:amd64`.
 
 # Run the image
 Running `docker run -i dockira:amd64`
