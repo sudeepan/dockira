@@ -1,5 +1,5 @@
 # dockira
-The devastated individual's humble attempt at (unreasonably) trying to run Kira on the newer Mac(O)s.
+The exhausted individual's humble attempt at (unreasonably) trying to run Kira on the newer Mac(O)s.
 
 # amd64 image (preferred)
 Open an integrated terminal, and enter the following command to build an amd64 image, since ginac has potential issues with aarch64:
