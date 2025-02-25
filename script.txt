@@ -28,7 +28,7 @@ function dkira() {
     docker cp $work_dir/. kira:/home/jobs/
     docker exec kira sh -c "kira $input_file"
     
-    # Copy any output files back to the host
+    # Copy the results folder back to the host
     mkdir -p results
     docker cp kira:/home/jobs/results $work_dir/
 
