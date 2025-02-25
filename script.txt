@@ -1,4 +1,3 @@
-
 function dkira() {
     local input_file
     local work_dir=$PWD
