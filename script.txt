@@ -1,0 +1,41 @@
+
+function dkira() {
+    local input_file
+    local work_dir=$PWD
+    
+    # Check if an input file is provided
+    if [ $# -eq 0 ]; then
+        echo "Error: No input file provided."
+        return 1
+    fi
+    
+    input_file=$1
+    
+    # Ensure the temporary directory exists and is clean
+    mkdir -p "$work_dir" > /dev/null || {
+        echo "Error: Could not create temporary directory."
+        return 2
+    }
+    
+    # Check if the input file exists
+    if [ ! -f "$input_file" ]; then
+        echo "Error: Input file $input_file does not exist."
+        return 3
+    fi
+    
+    # Run the Docker container and copy output files
+    echo "Starting kira process with input file: $input_file"
+    
+    docker cp $work_dir/. kira:/home/jobs/
+    docker exec kira sh -c "kira $input_file"
+    
+    # Copy any output files back to the host
+    mkdir -p results
+    docker cp kira:/home/jobs/results $work_dir/
+
+    docker exec kira sh -c "rm -rf *"
+    
+    echo "Kira process completed."
+    
+    return 0
+}
