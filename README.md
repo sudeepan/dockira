@@ -1,4 +1,4 @@
-# dockira
+# dockira: a Docker-based solution to work with Kira on MacOS
 The exhausted individual's humble attempt at (unreasonably) trying to run Kira on the newer Mac(O)s.
 
 # amd64 image (preferred)
