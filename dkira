@@ -1,9 +1,12 @@
 #!/usr/bin/env zsh
 
+#Set path to the docker binary on your machine
+DOCKER=/Applications/Docker.app/Contents/Resources/bin/docker
+
 work_dir=$PWD
 
 if [[ "$1" == --* ]]; then
-    docker exec kira kira "$@"
+    $DOCKER exec kira kira "$@"
     exit $?
 fi
 
@@ -21,13 +24,13 @@ fi
 
 echo "Starting kira process with input file: $input_file" >&2
 
-docker exec kira sh -c "rm -rf *"
-docker cp "$work_dir/." kira:/home/jobs/
-docker exec kira sh -c "kira $input_file"
+$DOCKER exec kira sh -c "rm -rf *"
+$DOCKER cp "$work_dir/." kira:/home/jobs/
+$DOCKER exec kira sh -c "kira $input_file"
 
-docker cp kira:/home/jobs/sectormappings "$work_dir"
-docker cp kira:/home/jobs/tmp "$work_dir"
-docker cp kira:/home/jobs/results "$work_dir"
+$DOCKER cp kira:/home/jobs/sectormappings "$work_dir"
+$DOCKER cp kira:/home/jobs/tmp "$work_dir"
+$DOCKER cp kira:/home/jobs/results "$work_dir"
 
 echo "Kira process completed." >&2
 exit 0
